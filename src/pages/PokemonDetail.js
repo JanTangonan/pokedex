@@ -22,13 +22,18 @@ function PokemonDetail() {
   return (
     <div className="pokemon-detail-wrapper">
       <button onClick={() => navigate(-1)} className="back-button">← Back</button>
+  
+      {/* Name + Number */}
+      <div className="pokemon-header">
+        <h1>#{pokemon.id.toString().padStart(3, '0')} {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h1>
+      </div>
 
+      {/* Pokemon Image + Detials */}
       <div className="pokemon-detail-container">
         <div className="left-panel">
           <img src={pokemon.sprites.other['official-artwork'].front_default} alt={pokemon.name} />
         </div>
         <div className="right-panel">
-          <h2>{pokemon.name}</h2>
           <p><strong>Base Experience:</strong> {pokemon.base_experience}</p>
           <p><strong>Height:</strong> {pokemon.height}</p>
           <p><strong>Weight:</strong> {pokemon.weight}</p>
@@ -43,7 +48,7 @@ function PokemonDetail() {
         </div>
       </div>
     </div>
-  );
+  );  
 }
 
 export default PokemonDetail;
